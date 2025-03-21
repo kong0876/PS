@@ -18,11 +18,7 @@ public class Main {
 		
 		for (int sLen = 1; sLen <= s.length(); sLen++) {
 			for (int start = 0; start < s.length() - sLen + 1; start++) {
-				StringBuilder sb = new StringBuilder();
-				for(int cur = start; cur <= start + sLen - 1; cur ++) {
-					sb.append(s.charAt(cur));
-				}
-				set.add(sb.toString());
+				set.add(s.substring(start, start + sLen));
 			}
 		}
 		
