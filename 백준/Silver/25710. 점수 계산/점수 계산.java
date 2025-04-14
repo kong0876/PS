@@ -36,22 +36,29 @@ public class Main {
 		}
 
 //		System.out.println(arr);
-		
+
 		int res = 0;
-		
+
 		for (int i = 0; i < arr.size() - 1; i++) {
 			for (int j = i + 1; j < arr.size(); j++) {
-				String str = Integer.toString(arr.get(i)*arr.get(j));
-				int tempRes = 0;
-				for(int k = 0; k < str.length(); k++) {
-					tempRes+= str.charAt(k) - '0';
-				}
-				
+
+				int tempRes = calc(arr.get(i) * arr.get(j));
 				res = Math.max(res, tempRes);
 			}
 		}
 
 		System.out.println(res);
 
+	}
+
+	static int calc(int num) {
+		int sum = 0;
+		
+		while(num != 0) {
+			sum += num%10;
+			num/=10;
+		}
+		
+		return sum;
 	}
 }
