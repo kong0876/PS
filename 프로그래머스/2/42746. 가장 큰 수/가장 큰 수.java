@@ -1,24 +1,24 @@
 import java.util.*;
 
+
 class Solution {
-    ArrayList<String> arr = new ArrayList<>();
-    StringBuilder sb = new StringBuilder();
-    
     public String solution(int[] numbers) {
+        StringBuilder answer = new StringBuilder();
         
-        for(int n : numbers){
+        ArrayList<String> arr = new ArrayList<>();
+        
+        for(Integer n : numbers){
             arr.add(Integer.toString(n));
         }
         
-        Collections.sort(arr, (a,b) -> (b + a).compareTo(a + b));
+        Collections.sort(arr, ((o1,o2) -> (o2 + o1).compareTo(o1 + o2)));
         
-        if(arr.get(0).equals("0")) return "0";
-        
-        for(String n : arr){
-            sb.append(n);
+        for(String s : arr){
+            answer.append(s);
         }
         
+        if(arr.get(1).equals("0")) return "0";
         
-        return sb.toString();
+        return answer.toString();
     }
 }
